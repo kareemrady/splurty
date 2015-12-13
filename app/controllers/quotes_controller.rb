@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
 	def index
 		@quote = Quote.order("RANDOM()").first
-		author_initials
+		#author_initials
 		
 	end
 
@@ -27,10 +27,10 @@ class QuotesController < ApplicationController
 		params.require(:quote).permit(:saying, :author)
 	end
 
-	private 
-	def author_initials
-		@initials = ""
-		@quote.author.split(" ").each {|name| @initials += name[0].capitalize}
-		@initials
- 	end
+	# private 
+	# def author_initials
+	# 	@initials = ""
+	# 	@quote.author.split(" ").each {|name| @initials += name[0].capitalize}
+	# 	@initials
+ # 	end
 end
